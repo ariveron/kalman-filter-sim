@@ -1,0 +1,17 @@
+input[type='number']{
+  width: 100px;
+}
+
+br {
+  display: block;
+  content: "";
+  margin-top: 10px;
+}
+
+body {
+  background-color: darkslategray;
+  color: azure;
+  font-family: Arial, Helvetica, sans-serifo;
+  max-width: 800px;
+  margin: 5px auto;
+}

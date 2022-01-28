@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalman Filter Simulator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas width="800" height="600" id="drawing-surface"></canvas>
+  <br>
+  
+  <p>"P" = Toggle Pause | "UP" = +ay | "DOWN" = -ay | "LEFT" = -ax | "RIGHT" = +ax | "C" = Toggle Coordinates</p>
+  <p>Mouse Left Click, Drag, and Release = Launch Ball</p>
+
+  <hr>
+  
+  <div id="inputs">
+    <!-- inputs dynamically added through JavaScript in main.mjs -->
+  </div>
+
+  <hr>
+
+  <h1>Kalman Filter Simulator</h1>
+
+  <p>This program simulates balls in motion using the classical physics equations for the position of an object moving at a certain velocity with a constant acceleration.</p>
+  <p>The motion of the ball is simulated based on gravity and the starting ball velocity and position, and gaussian noise is applied to the position vectors so that they can be used as input for the Kalman Filter algorithm, which can accurately estimate the ball's actual position regardless of the sensor noise.</p>
+  <p>The Kalman Filter state transition matrix assumes constant and indepent horizontal and vertical acceleration, which makes it interesting to watch how the Kalman Filter estimates react to acceleration being changed in the middle of the algorithm. It seems that the Kalman Filter is able to correct the acceleration and velocity components slowly, but takes even longer to be able to correct the position components, or doesn't at all within a practical amount of time, depending on the R matrix.</p>
+  <p>The simulation's actual ball position, measurements, and Kalman Filter estimates are all visualized in real time.</p>
+
+  <h1>Instructions</h1>
+
+  <h2>Gravity</h2>
+  <p>Use the UP, DOWN, LEFT, and RIGHT arrow keys on your keyboard to control the gravity.</p>
+  <p>You can see the current gravity x and y components on the top right corner of the screen.</p>
+  <img src="./images/world_gravity.png" alt="world gravity" srcset="">
+
+  <h2>Ball Launcher</h2>
+  <p>To create a ball, left click and hold on the black screen with your mouse and create a velocity vector.</p>
+  <p>Let go of the left mouse button to release the ball with the specified velocity vector.</p>
+  <p>Notice that the x and y components of the velocity vector are shown in green text.</p>
+  <p>Multiple balls can be active at the same time.</p>
+  <img src="./images/ball_launcher.png" alt="ball launcher" srcset="">
+
+  <h2>Ball, Sensor, and Estimate</h2>
+  <p>When the ball is launched you will see the actual ball location as a white filled circle.</p>
+  <p>The noisy sensor measurement is represented by the hollow yellow circle.</p>
+  <p>The Kalman Filter estimate is represented by the red square. The width and height of the square are proportional to the current x and y variance.</p>
+  <img src="./images/ball_sensor_estimate.png" alt="ball sensor and estimate" srcset="">
+
+  <h2>Sensor Delta Seconds</h2>
+  <p>You can use the number input above to adjust how often the sensor reads the ball's location.</p>
+  <p>The readings delta seconds are in multiples of 1/60. Please just use integers. For example if you want to read every 1 second, input 60 in the field.</p>
+
+  <h2>Sensor Noise Stdev</h2>
+  <p>Sensor noise is simulated by sampling from a normal distribution with a mean of 0 and stdev from the field above.</p>
+
+  <h2>Initial P Matrix</h2>
+  <p>The initial P matrix that is used by the Kalman Filter when a ball is first created and launched.</p>
+
+  <h2>R Matrix</h2>
+  <p>The R matrix used by the Kalman Filter algorithm.</p>
+
+  <h2>Pausing</h2>
+  <p>At any time press the "P" keyboard key to pause the simulation, press "P" again to resume.</p>
+  <p>You can still launch balls while the simulation is paused. They will start moving once you resume.</p>
+
+  <script type="module" src="main.mjs"></script>
+</body>
+</html>
