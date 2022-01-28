@@ -5,14 +5,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kalman Filter Simulator</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <canvas width="800" height="600" id="drawing-surface"></canvas>
   <br>
   
-  <p>"P" = Toggle Pause | "UP" = +ay | "DOWN" = -ay | "LEFT" = -ax | "RIGHT" = +ax | "C" = Toggle Coordinates</p>
-  <p>Mouse Left Click, Drag, and Release = Launch Ball</p>
+  <p>P => Toggle Pause | UP => ++ay | DOWN => --ay | LEFT => --ax | RIGHT => ++ax</p>
+  <p>C => Toggle Coordinates | Z => ax = ay = 0 | Mouse Left Click, Drag, and Release => Launch Ball</p>
 
   <hr>
   
@@ -66,6 +66,6 @@
   <p>At any time press the "P" keyboard key to pause the simulation, press "P" again to resume.</p>
   <p>You can still launch balls while the simulation is paused. They will start moving once you resume.</p>
 
-  <script type="module" src="main.mjs"></script>
+  <script type="module" src="./main.mjs"></script>
 </body>
 </html>

@@ -24,12 +24,12 @@ const xMatrixElement = new NumericalTableElement(
 );
 const pMatrixElement = new NumericalTableElement(
   new Matrix([
-    [1000.0,    0.0,    0.0,    0.0,    0.0,    0.0],
-    [   0.0, 1000.0,    0.0,    0.0,    0.0,    0.0],
-    [   0.0,    0.0, 1000.0,    0.0,    0.0,    0.0],
-    [   0.0,    0.0,    0.0, 1000.0,    0.0,    0.0],
-    [   0.0,    0.0,    0.0,    0.0, 1000.0,    0.0],
-    [   0.0,    0.0,    0.0,    0.0,    0.0, 1000.0],
+    [9999.0,    0.0,    0.0,    0.0,    0.0,    0.0],
+    [   0.0, 9999.0,    0.0,    0.0,    0.0,    0.0],
+    [   0.0,    0.0, 9999.0,    0.0,    0.0,    0.0],
+    [   0.0,    0.0,    0.0, 9999.0,    0.0,    0.0],
+    [   0.0,    0.0,    0.0,    0.0, 9999.0,    0.0],
+    [   0.0,    0.0,    0.0,    0.0,    0.0, 9999.0],
   ]), 
   "starting P matrix =", 
   ["x", "y", "vx", "vy", "ax", "ay"], 
@@ -38,8 +38,8 @@ const pMatrixElement = new NumericalTableElement(
 );
 const rMatrixElement = new NumericalTableElement(
   new Matrix([
-    [10, 0],
-    [0, 10]
+    [100, 0],
+    [0, 100]
   ]), 
   "R matrix =", ["x", "y"], ["x", "y"], inputsDiv, false
 );

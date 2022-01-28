@@ -71,6 +71,9 @@ class Scene {
             case "KeyC":
               this.#isShowingCoordinates = !this.#isShowingCoordinates;
               break;
+            case "KeyZ":
+              this.#ax = 0;
+              this.#ay = 0;
             default:
               break;
           }
